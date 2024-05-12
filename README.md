@@ -16,6 +16,7 @@ Welcome to `nlp-services`, a versatile API designed to harness the power of Natu
 - Node.js, Nest.Js and npm installed on your machine
 - Docker for containerization and deployment
 - Access to Google Cloud Platform and AWS services
+- MongoDB instance running and accessible
 
 ### Setup
 
@@ -34,6 +35,7 @@ Create a `.env` file in the root directory and populate it with your Google Clou
 GOOGLE_APPLICATION_CREDENTIALS=<path-to-your-google-credentials.json>
 AWS_ACCESS_KEY_ID=<your-aws-access-key-id>
 AWS_SECRET_ACCESS_KEY=<your-aws-secret-access-key>
+MONGODB_URI=<your-mongodb-connection-string>
 ```
 
 3. **Install Dependencies**
@@ -56,7 +58,7 @@ Refer to the `Dockerfile` for containerization details. Use the following comman
 
 ```bash
 docker build -t nlp-services .
-docker run -p 3000:3000 nlp-services
+docker run -p 3000:3000 -e MONGODB_URI=<your-mongodb-connection-string> nlp-services
 ```
 
 ## Usage
@@ -65,24 +67,6 @@ This API provides endpoints to interact with the Google Cloud Natural Language A
 
 - **POST** `/api/analyze/google` for analyzing text with Google's NLP.
 - **POST** `/api/analyze/aws` for analyzing text with AWS Comprehend.
-
-## Filetree
-
-nlp-services
-  api
-    package.json
-    package-lock.json
-    test
-    tsconfig.json
-    tsconfig.build.json
-    .prettierrc
-    src
-      main.ts
-      app
-        app.module.ts
-      aws-comprehend
-      google-nlp
-      
 
 ## License
 
