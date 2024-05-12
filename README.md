@@ -23,7 +23,7 @@ Welcome to `nlp-services`, a versatile API designed to harness the power of Natu
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/nlp-services.git
+git clone https://github.com/vsergejevs/nlp-services.git
 cd nlp-services
 ```
 
