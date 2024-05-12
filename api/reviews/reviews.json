@@ -1,0 +1,50 @@
+[
+  {
+    "reviewId": "765a4321-b89e-21d4-b56a-537725285111",
+    "productId": 67890,
+    "username": "TheCaffeineFiend",
+    "timestamp": "2023-03-18T08:42:10Z",
+    "reviewText": "This medium roast blend surprised me! It has a bright, fruity aroma and a very smooth taste. The acidity is well-balanced, and there's a lovely sweetness that lingers. I'm usually into richer flavors, but this is definitely a great everyday coffee. Just a warning – it packs a surprising caffeine punch!",
+    "rating": 4
+  },
+  {
+    "reviewId": "908f7654-c78d-32e1-c67b-648836374222",
+    "productId": 67890,
+    "username": "EspressoEnthusiast",
+    "timestamp": "2023-03-14T15:11:33Z",
+    "reviewText": "I was excited to try this single-origin coffee, but I have to admit, I was underwhelmed. The aroma was promising, but the taste fell flat. It was too watery, even when brewed strong. There was a hint of interesting nuttiness, but overall it just lacked depth. Maybe I'll try a different roast level next time.",
+    "rating": 2
+  },
+  {
+    "reviewId": "555a666b-d78e-45f6-a789-768843455111",
+    "productId": 67890,
+    "username": "ColdBrewFanatic",
+    "timestamp": "2023-03-16T20:55:17Z",
+    "reviewText": "These beans are perfect for my cold brew! They don't get too acidic during the long steeping time, and the flavor is chocolatey and mellow. I get a consistently smooth result, perfect for making iced coffee on hot days.",
+    "rating": 5
+  },
+  {
+    "reviewId": "acbd1234-ef56-7890-1234-567890abcdef",
+    "productId": 67890,
+    "username": "FlavorExplorer",
+    "timestamp": "2023-03-20T02:15:49Z",
+    "reviewText": "This coffee is intriguing! It has a lot going on – hints of dark chocolate, berries, and a subtle floral note. It's definitely not for everyone, as it can be a bit overwhelming at first. The downside is the roast is a bit uneven, leading to some slightly burnt flavors alongside the good ones.",
+    "rating": 3
+  },
+  {
+    "reviewId": "09876543-21dc-ba09-8765-432109876543",
+    "productId": 67890,
+    "username": "BusyButCaffeinated",
+    "timestamp": "2023-03-20T14:02:05Z",
+    "reviewText": "I love the convenience of these single-serve coffee pods, but the coffee itself is just okay. It's decent for a quick cup on the go, but it lacks the richness and depth of freshly ground beans. If you prioritize flavor, this might not be it, but for ease of use, it does the trick.",
+    "rating": 3
+  },
+  {
+    "reviewId": "ffeeddcc-bba9-8877-6655-4433221100aa",
+    "productId": 67890,
+    "username": "AutumnSpiceLover",
+    "timestamp": "2023-03-19T21:37:50Z",
+    "reviewText": "This pumpkin spice blend is a cozy autumn treat. The spice mix is warm and comforting, but the coffee flavor itself is a little weak. It's more like a flavored latte than a strong cup of coffee. Still enjoyable for the season, but not something I'd drink year-round.",
+    "rating": 3
+  }
+]
