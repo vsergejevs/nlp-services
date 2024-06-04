@@ -4,7 +4,19 @@ dotenv.config();
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ValidationPipe } from '@nestjs/common';
-import { monitorEventLoopDelay } from 'perf_hooks';
+import {
+  monitorEventLoopDelay,
+  PerformanceObserver,
+  PerformanceEntry,
+} from 'perf_hooks';
+import { LogRotatorService } from './monitoring/service/log-rotator.service';
+
+interface GcPerformanceEntry extends PerformanceEntry {
+  detail: {
+    kind: number;
+    flags: number;
+  };
+}
 
 // interface EventLoopUtilizationEntry extends PerformanceEntry {
 //   utilization: number;
@@ -15,8 +27,10 @@ import { monitorEventLoopDelay } from 'perf_hooks';
 async function bootstrap() {
   try {
     const app = await NestFactory.create(AppModule);
+    const logRotatorService = app.get(LogRotatorService);
+    const GC_HEADER = 'Timestamp,GC Type,Duration\n';
 
-    // Set up and log performance metrics
+    // Set up and log performance metrics for Event Loop Delay
     const eld = monitorEventLoopDelay();
     eld.enable();
     setInterval(() => {
@@ -28,6 +42,22 @@ async function bootstrap() {
       );
       eld.reset();
     }, 10000);
+
+    // Set up garbage collection monitoring
+    const gcObserver = new PerformanceObserver((list) => {
+      list.getEntries().forEach((entry) => {
+        const gcEntry = entry as GcPerformanceEntry;
+        if (entry.entryType === 'gc' && gcEntry.detail) {
+          const timestamp = new Date().toISOString();
+          const kind = gcEntry.detail.kind;
+          const duration = entry.duration.toFixed(2);
+          const logMessage = `${timestamp},${kind},${duration}\n`;
+          logRotatorService.appendToFile('gc-metrics', logMessage, GC_HEADER);
+        }
+      });
+    });
+
+    gcObserver.observe({ entryTypes: ['gc'] });
 
     // console.log('Setting up Event Loop Utilization monitoring');
 
